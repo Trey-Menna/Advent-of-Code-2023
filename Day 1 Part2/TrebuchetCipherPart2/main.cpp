@@ -44,7 +44,7 @@ int main() {
                                 firstDigit = j + 1;
                             }
                             lastDigit = j + 1;
-                            i += spelledOutDigit.size() - 1; // Move the index accordingly
+                            i += spelledOutDigits[j].size() - 1; // Move the index accordingly
                             break;
                         }
                     }
