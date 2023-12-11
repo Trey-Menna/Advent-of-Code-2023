@@ -23,6 +23,7 @@ int main() {
     std::string line;
     std::ifstream file("input.txt");
     int sum = 0; // Initialize sum
+    int lineNum = 1;
 
     if (file.is_open()) {
         const std::string spelledOutDigits[] = { "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
@@ -60,12 +61,14 @@ int main() {
 
             // Add the merged digits to the sum
             sum += mergedDigits;
+            
 
             // Output the real first and last digits and the merged digits
-            std::cout << "Line: " << line << "\n";
+            std::cout << "Line " << lineNum << ": " << line << "\n";
             std::cout << "First Digit: " << firstDigit << "\n";
             std::cout << "Last Digit: " << lastDigit << "\n";
             std::cout << "Merged Digits: " << mergedDigits << "\n";
+            lineNum++;
         }
 
         // Output the total sum
