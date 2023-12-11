@@ -22,7 +22,11 @@ int convertSpelledOutDigit(const std::string& spelledOutDigit) {
 int main() {
     std::string line;
     std::ifstream file("input.txt");
+    int sum = 0; // Initialize sum
+
     if (file.is_open()) {
+        const std::string spelledOutDigits[] = { "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
+        
         while (getline(file, line)) {
             // Extract the real first and last digits from the line
             int firstDigit = 0;
@@ -51,11 +55,22 @@ int main() {
                 }
             }
 
-            // Output the real first and last digits
+            // Merge the first and last digits into a two-digit number
+            int mergedDigits = firstDigit * 10 + lastDigit;
+
+            // Add the merged digits to the sum
+            sum += mergedDigits;
+
+            // Output the real first and last digits and the merged digits
             std::cout << "Line: " << line << "\n";
             std::cout << "First Digit: " << firstDigit << "\n";
             std::cout << "Last Digit: " << lastDigit << "\n";
+            std::cout << "Merged Digits: " << mergedDigits << "\n";
         }
+
+        // Output the total sum
+        std::cout << "Total Sum: " << sum << "\n";
+
         file.close();
     } else {
         std::cerr << "Unable to open file\n";
